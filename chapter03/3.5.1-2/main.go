@@ -9,7 +9,7 @@ import (
 // 必要な部位を切り出すio.SectionReader
 // 文字列からSectionの部分だけを切り出したReaderをまず作成し、
 // それをすべてos.Stdoutに書き出している
-// （実際には文字列を分けるためにio.SectionReaderを使うことはまずありません）
+// （実際には文字列を分けるためにio.SectionReaderを使うことはまずない）
 func main() {
 	reader := strings.NewReader("Example of io.SectionReader\n")
 	SectionReader := io.NewSectionReader(reader, 14, 7)
