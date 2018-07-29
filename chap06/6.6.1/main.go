@@ -12,7 +12,7 @@ import (
 	"time"
 )
 
-// 速度改善
+// 速度改善(1): HTTP/1.1のKeep-Aliveに対応させる
 // Keep-Alive対応のHTTPサーバー
 
 func main() {

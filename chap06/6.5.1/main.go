@@ -11,6 +11,9 @@ import (
 )
 
 // TCPソケットを使ったHTTPサーバー
+//
+// Go言語のソケットを使ってHTTP/1.0相当の送受信を実現する
+// HTTP/1.0では、1セットの通信が終わるたびにTCPのコネクションが切れる仕様
 
 func main() {
 	listener, err := net.Listen("tcp", "localhost:8888")
@@ -23,6 +26,8 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
+
+		// 非同期に実行される
 		go func() {
 			fmt.Printf("Accept %v\n", conn.RemoteAddr())
 			// リクエストを読み込む
@@ -45,5 +50,6 @@ func main() {
 			response.Write(conn)
 			conn.Close()
 		}()
+
 	}
 }
